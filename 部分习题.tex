@@ -1,0 +1,570 @@
+\input{header.tex}
+\begin{document}
+    
+\section*{部分习题}
+
+% 6.7
+
+% $$
+% T=
+% \begin{pmatrix}
+%     1&d_2\\    
+%     0&1\\    
+% \end{pmatrix}
+% \begin{pmatrix}
+% 1&0\\    
+% -1/f&1\\    
+% \end{pmatrix}
+% \begin{pmatrix}
+% 1&d_1\\    
+% 0&1\\    
+% \end{pmatrix}
+% $$
+
+
+
+6.11
+
+考虑波包
+
+\[A(z, t)=\int_{-\infty}^{\infty} G(\Delta \omega) e^{i[\Delta \omega t-\Delta k(\omega) z]} d(\Delta\omega) \]
+作二阶展开
+
+\[\Delta k(\omega)=\left.\frac{d k}{d \omega}\right|_{\omega=\omega_{0}} \cdot \Delta \omega+\frac{1}{2}\left.\frac{d^{2} k}{d \omega^{2}}\right|_{\omega=\omega_{0}} \cdot(\Delta \omega)^{2} \]
+令\(a=\frac{1}{2} \frac{d^{2} k}{d \omega^{2}} \Big|_{\omega=\omega_0}\)则有
+
+\[A(z, t)=\int_{-\infty}^{\infty} G(\Delta \omega) e^{i\left[\Delta \omega t-\frac{z}{v_{g}} \Delta \omega+a(\Delta \omega)^{2} z\right]} \]
+取高斯波包\(G(\Delta \omega)=\sqrt{\frac{\pi}{2}} e^{-\Delta \omega^{2} / 4 \alpha}\), 其中脉冲宽度\(\tau_{0}=\sqrt{\frac{2 \ln 2}{\alpha}}\), 带入积分计算得到
+
+\[A(z, t)=N \exp [i \varphi(z, t)] \exp \left(\frac{\left(t-\frac{z}{v g}\right)^{2}}{\frac{1}{\alpha}+16 \alpha a^{2} z^{2}}\right) \]
+其中\(N\)为归一化因子, 而\(\varphi(z,t)\)是一实函数, 由此得脉冲宽度
+
+\[\tau(z)=\sqrt{\frac{2 \ln 2}{\alpha}} \sqrt{1+16 a^{2} \alpha^{2} z^{2}}\simeq \tau_{0} 4 |a|\alpha z=4 \ln 2 \frac{L}{\tau_{0}} \frac{d^{2} k}{d w^{2}}\bigg|_{w=w_{0}} \]
+最后的\(z\)取\(L\), 而且
+
+\[\frac{d^{2} k}{d \omega^{2}}\bigg|_{\omega=\omega_{0}}= \frac{d}{d \omega} \frac{d k}{d \omega}=-\frac{1}{v_{g}^{2}} \frac{d v_{g}}{d \omega} \]
+或者, 频率为\(\omega_{0}+\frac{1}{2} \Delta \omega\)的部分和\(\omega_{0}-\frac{1}{2} \Delta \omega\)的部分, 在不同时刻到达\(L\)处, 时间差为
+
+\[\Delta\tau=\frac{L}{v_{g}\left(\omega+\frac{1}{2} \Delta w\right)}-\frac{L}{v_{g}\left(\omega-\frac{1}{2} \Delta \omega\right)}=\left(\frac{1}{v_g+\frac{d v_{g}}{d \omega} \big| _{\omega=\omega_{0}} \cdot \frac{1}{2} \Delta \omega}-\frac{1}{v_g-\frac{d v_{g}}{d \omega} \big| _{\omega=\omega_{0}} \cdot \frac{1}{2} \Delta \omega}\right)\\=-\frac{L}{\nu_{g}^{2}}\left.\frac{d v_{g}}{d \omega}\right|_{\omega=\omega_{0}} \cdot \Delta \omega \]
+其中\(\Delta \omega=\frac{1}{\pi \tau_{0}}\), 于是得到题中给出的展宽.
+
+6.12
+
+光斑尺寸由下式决定,
+
+\[\omega=\sqrt{\frac{\lambda}{\pi}}\left(\frac{1}{n n_{2}}\right)^{\frac{1}{4}} \]
+而展宽后的总脉冲宽度为
+
+\[\tau+\Delta \tau=\frac{L}{v_{g}^{2}} \frac{n_{2} / n}{k^{3}}(l+m+1)^{2} \frac{1}{\pi \tau}+\tau \]
+从而每秒最多发送的脉冲数量, 由上面的脉冲宽度决定, 即\(1/(\tau+\Delta\tau)\).
+
+6.13
+
+令\(\psi(x, y)=f(x) g(y)\), 则分离变量可得
+
+\[\left\{\begin{array}{l}{\frac{f^{\prime \prime}(x)}{f(x)}-k^{2} \frac{n_{2}}{n} x^{2}=-\lambda_x} \\ {\frac{g^{\prime \prime}(y)}{g(y)}-k^{2} \frac{n_{2}}{n} y^{2}=-\lambda_{y}} \\ {k^{2}-\beta^{2}-\lambda_{x}-\lambda_{y}=0}\end{array}\right. \]
+再引入下面变量进行无量纲化处理
+
+\[\xi=\frac{\sqrt{2} x}{\omega}, \omega=\sqrt{\frac{\lambda}{\pi}}\left(\frac{1}{n \pi_{2}}\right)^{\frac{1}{4}} \]
+得到\(f^{\prime \prime}(\xi)+\left(\lambda^{\prime}-\xi^{2}\right) f(\xi)=0\), 所以\(\lambda^{\prime}=2 l+1\), 而
+
+\[f(x)=H\left(\frac{\sqrt{2} x}{\omega}\right) e^{-\left(\frac{x}{\omega}\right)^{2}} \]
+对\(y\)也类似处理, 有
+
+\[\psi(x, y)=E_{(l, m)} H_{l}\left(\sqrt{2} \frac{x}{\omega}\right) H_{m}\left(\sqrt{2} \frac{y}{\omega}\right) e^{-\frac{x^{2}+y^{2}}{\omega^{2}}} \]
+再利用\(k^{2}-\beta^{2}-\lambda_{x}-\lambda_{y}=0\)可得
+
+\[\beta_{l, m}=k \sqrt{1-\frac{2}{k} \sqrt{\frac{n_{2}}{n}}(l+m+1)} \]
+
+
+
+7.1
+由PPT知
+\begin{gather}
+    Q=\omega t_{c}\\
+    t_{c}=\frac{n l}{c\left[\alpha l+\left(1-\sqrt{R_{1} R_{2}}\right)\right]}
+\end{gather}
+假设对光学腔和微波腔均有
+$$
+\alpha=0, n=1, R_1=R_2=R
+$$
+则
+$$
+t_c=\frac{l}{c(1-R)}
+$$
+所以差异仅仅在$\omega$上. 因此光学腔的\(Q\)值比微波腔高\(3\)到\(6\)个数量级.
+
+7.2
+Design a resonator with $R_1=-20$ cm, $R_2=32$ cm, $l=16$ cm, $\lambda=10^{-4}$ cm.
+Determine
+\begin{enumerate}
+    \item the minimum spot size$\omega_0$
+    \item Its location
+    \item The spot size $\omega_1$ and $\omega_2$ at the mirrors
+    \item the ratios of $\omega_0$, $\omega_1$, and $\omega_2$ to their respective confocal $(-R_1 = R_2 = l)$ values.
+\end{enumerate}
+
+1.由PPT知
+$$
+\left\{
+\begin{aligned}
+    &z_0^2=\frac{l(R_2-R_1-l)(l+R_1)(l-R_2)}{(2l+R_1-R_2)^2}\\
+    &z_0=\frac{\pi \omega_0^2}{\lambda}
+\end{aligned}
+\right.
+$$
+将数值代入公式得
+\begin{align*}
+    z_0^2
+    &=\frac{l(R_2-R_1-l)(l+R_1)(l-R_2)}{(2l+R_1-R_2)^2}\\
+    &=\frac{16\cdot36(-4)(-16)}{(-20)^2}\\
+    &=\frac{2304}{25}\\
+    z_0
+    &=9.6 \ \mathrm{cm}\\
+    \omega_0
+    &=\sqrt{\frac{\lambda z_0}{\pi}}\\
+    &=\sqrt{\frac{10^{-4} \cdot 9.6}{\pi}}\\
+    &=1.75\times10^{-2} \ \mathrm{cm}
+\end{align*}
+
+2.由PPT知
+$$
+\left\{
+\begin{aligned}
+    &z_1=\frac{1}{2}\left(R_1\pm \sqrt{R_1^2-4z_0^2}\right)\\
+    &z_2=\frac{1}{2}\left(R_2\pm \sqrt{R_2^2-4z_0^2}\right)
+\end{aligned}
+\right.
+$$
+Note that $z_1, z_2$ will have two value from which we choose the value exactly satisfying $z_2-z_1=l$ and that is the expected result.
+% where in this case\dots
+
+代入数值得
+\begin{align*}
+    z_1
+    &=\frac{1}{2}\left(R_1\pm \sqrt{R_1^2-4z_0^2}\right)
+    =\frac{1}{2}\left(-20\pm \sqrt{20^2-4\cdot 9.6^2}\right)
+    =\frac{1}{2}\left(-20\pm 5.6\right)
+    =-7.2 \ \mathrm{or}\  -12.8 \ \mathrm{cm}\\
+    z_2
+    &=\frac{1}{2}\left(32\pm \sqrt{32^2-4\cdot 9.6^2}\right)
+    =\frac{1}{2}\left(32\pm 25.6\right)
+    =28.8 \ \mathrm{or}\ 3.2 \ \mathrm{cm}
+\end{align*}
+so 
+$$
+z_1=-12.8 \ \mathrm{cm}, \quad z_2=3.2 \ \mathrm{cm}
+$$
+
+
+
+% 中文版
+% \begin{enumerate}
+%     \item 最小光斑尺寸$\omega_0$;
+%     \item 最小光斑的位置；
+%     \item 镜面光斑尺寸$\omega_1$和$\omega_2$；
+%     \item 和w2分别与共焦腔(B=一五2=)相应值的比。
+% \end{enumerate}
+
+3.use the Gaussian parameter relation
+$$
+\omega(z)=\omega_0 \left(1+z^2/z_0^2\right)^{1/2}
+$$
+代入数值得
+\begin{align*}
+   &\omega_1=\omega_0 \left(1+z_1^2/z_0^2\right)^{1/2}
+   =\omega_0(1+12.8^2/9.6^2)^{1/2}=\frac{5}{3}\omega_0
+   \ (\ =2.92\times10^{-2} \ \mathrm{cm})\\
+   &\omega_2=\omega_0 \left(1+z_2^2/z_0^2\right)^{1/2}
+   =\omega_0(1+3.2^2/9.6^2)^{1/2}=\frac{\sqrt{10}}{3}\omega_0
+   \ (\ =1.84\times10^{-2} \ \mathrm{cm})
+\end{align*}
+
+4.由PPT知
+$$
+\left\{
+\begin{aligned}
+    &\omega_{0,\mathrm{conf}}=\sqrt{l/k}\\
+    &\omega_{1,2,\mathrm{conf}}=\sqrt{2}\omega_{0,\mathrm{conf}}
+\end{aligned}
+\right.
+$$
+
+代入数值得
+\begin{align*}
+    &\omega_{0,\mathrm{conf}}=\sqrt{\frac{\lambda l}{2\pi}}=\sqrt{\frac{10^{-4}\cdot 16}{2\pi}}
+    =1.60\times10^{-2} \ \mathrm{cm}\\
+    &\omega_{1,2,\mathrm{conf}}=\sqrt{2}\omega_{0,\mathrm{conf}}
+    =2.26\times10^{-2} \ \mathrm{cm}
+\end{align*}
+
+
+
+% 7.4
+
+% 令\(\frac{l}{R}=x, \frac{l}{R_{2}}=y\), 则稳定条件的方程约束写为\(0 \leq(1-x)(1-y) \leq 1\), 
+% 注意\(\frac{1}{x}+\frac{1}{y}=1\)和\((x-1)(y-1)=1\)是同一条曲线. 
+% 边界\((x-1)(y-1)=1\)把平面分为6块, 对每一块要么全部满足约束要么全部违反约束.
+
+
+7.5
+
+见图，计算 $1\to2$ 这一个周期的传输矩阵$T$
+
+在二元周期透镜中令 $f_2=f, f_1=-f$
+
+得
+$$
+T=
+\begin{pmatrix}1-l/f&2l-l^2/f\\-l/f^2&l/f-l^2/f^2+1\end{pmatrix}
+$$
+$$
+b=\frac{1}{2}(A+D)=2-l^2/f^2
+$$
+
+
+% 或者
+% \begin{align*}
+% T&=
+% \begin{pmatrix}1&0\\1/f&1\end{pmatrix}
+% \begin{pmatrix}1&l\\0&1\end{pmatrix}
+% \begin{pmatrix}1&0\\-1/f&1\end{pmatrix}
+% \begin{pmatrix}1&l\\0&1\end{pmatrix}\\
+% &=\begin{pmatrix}1&0\\1/f&1\end{pmatrix}
+% \begin{pmatrix}1&l\\0&1\end{pmatrix}
+% \begin{pmatrix}1&l\\-1/f&-l/f+1\end{pmatrix}\\ 
+% &=\begin{pmatrix}1&0\\1/f&1\end{pmatrix}   
+% \begin{pmatrix}1-l/f&2l-l^2/f\\-1/f&-l/f+1\end{pmatrix}\\
+% &=\begin{pmatrix}1-l/f&2l-l^2/f\\-l/f^2&l/f-l^2/f^2+1\end{pmatrix}
+% \end{align*}
+% so 
+% $$
+% r_{n+1}=(1-\frac{l}{f})r_n-\frac{l}{f^2}r'_n
+% $$
+
+
+
+最后是正弦震荡,题目说的“净聚焦”有误导性
+
+
+7.6
+对于对称腔,束腰位于腔中心,因此有
+$$
+z_2=-z_1=\frac{l}{2}, \quad R_2=-R_1=R
+$$
+
+代入
+$$
+z_0^2=\frac{l(R_2-R_1-l)(l+R_1)(l-R_2)}{(2l+R_1-R_2)^2}
+$$
+得
+$$
+z_0^2=\frac{1}{4}l(2R-l)
+$$
+再由高斯光束的参数关系
+$$
+\omega_0^2=\frac{2z_0}{k}=\frac{2}{k}\sqrt{l(2R-l)}
+$$
+$$
+\omega_{1,2}
+=\omega_0\left(1+z_{1,2}^2/z_0^2\right)^{1/2}
+=\omega_0\left(1+\frac{l}{2R-l}\right)^{1/2}
+=\omega_0\left(\frac{2R}{2R-l}\right)^{1/2}
+$$
+
+
+7.7
+
+由
+
+
+$$
+\left\{\begin{array}{l}{R_{1}=z_{1}+\frac{z_{0}^{2}}{z_{1}}} \\ {R_{2}=z_{2}+\frac{z_{0}^{2}}{z_{2}}}\end{array}\right. 
+$$
+
+代入
+$$
+g_{1} g_{2}=\left(1-\frac{l}{R_{1}}\right)\left(1-\frac{l}{R_{2}}\right)
+$$
+时注意$R_1$要变号，得到
+
+\[g_{1} g_{2}=\frac{\left(z_{0}^{2}+z_{1} z_{2}\right)^{2}}{\left(z_{1}^{2}+z_{0}^{2}\right)\left(z_{2}^{2}+z_{0}^{2}\right)} \geqslant 0 \]
+
+再设\(g_{1} g_{2} \leqslant 1\), 并展开消项, 得到
+\(2 z_{1} z_{2} \leqslant z_{1}^{2}+z_{2}^{2}\), 
+所以确实有\(g_{1} g_{2} \leqslant 1\).
+
+7.9
+
+以第二面反射镜处为参考面, 则传输矩阵为
+
+\[
+\left(\begin{array}{ll}{1} & {l} \\ {0} & {1}\end{array}\right)
+\left(\begin{array}{cc}{1} & {0} \\ {-\frac{2}{R_{1}}} & {1}\end{array}\right)
+\left(\begin{array}{ll}{1} & {l} \\ {0} & {1}\end{array}\right)
+\left(\begin{array}{cc}{1} & {0} \\ {-\frac{2}{R_{2}}} & {1}\end{array}\right)
+=\left(\begin{array}{ll}{\frac{4 l^{2}+R_{1} R_{2}-2 l\left(2 R_{1}+R_{2}\right)}{R_{1} R_{2}}} 
+& {l\left(2-\frac{2 l}{R l}\right)} \\ 
+{-2 \frac{\left(-2 l+R_{1}+R_{2}\right)}{R_{1} R_{2}}} 
+& {l-\frac{2 l}{R l}}\end{array}\right) 
+\]
+由7.2-7式可得
+$$
+R(z=\text{第二面反射镜处})=\frac{2B}{D-A}
+$$
+将矩阵元带入化简得\(\frac{2B}{D-A}=R_2\). 
+
+对于\(R_1\)镜面, 选取参考面在\(R_1\)处, 也可以得到类似证明.
+
+7.10
+
+由7.2-3可得
+\[\frac{1}{q}=\frac{C+D /q}{A+B/q} \]
+设函数
+\[
+f(x)=\frac{C+D x}{A+B x}, \delta f(x)=f(x+\Delta x)-f(x) \simeq \frac{\Delta x}{(A+B x)^{2}} 
+\]
+在上式右边的\(x\)中带入稳态解7.2-5得
+\[
+\delta f=e^{\mp i2 \theta}\Delta x 
+\]
+其中\(\Delta x\)代表\(\Delta(1/q)\), 而\(\delta f\)代表\(\delta(1/q)\). 显然当满足稳定条件的时候, 即\(\theta\)是实数, 则有
+\[\left|\delta\left(\frac{1}{q}\right)\right|=\left|\Delta\left(\frac{1}{q}\right)\right| \]
+
+
+
+
+
+
+
+
+
+
+
+
+8.3
+
+按照\(r=r_0\cos(\omega t)\)简谐振动的电子, 能量为
+
+\[E=\frac{1}{2} m \dot{r}^{2}+\frac{1}{2} m \omega^{2} r^{2}=\frac{1}{2} m \omega^{2} r_{0}^{2} \]
+按照拉莫尔公式, 辐射功率为
+
+\[P=\frac{e^{2} \dot{r}^{2}}{6 \pi \varepsilon_{0} c^{3}} \]
+于是寿命为
+
+\[t_{\text{经典}}=\frac{E}{P}=\frac{6 \pi \varepsilon_{0} c^{3} m}{e^{2} \omega^{2}}=\frac{3 \varepsilon_{0} c^{3} m}{2 \pi e^{2} \nu^{2}} \]
+
+
+8.5
+
+令\(\dot{\sigma}_{21}=0, \dot{\rho}_{11}-\dot{\rho}_{22}=0\)得到关于$\sigma_{21}$和$\rho_{11}-\rho_{22}$达到稳态时的方程组
+\begin{gather*}
+\mathrm{i}\left(\omega-\omega_{0}\right) \sigma_{21}+\mathrm{i} \Omega\left(\rho_{11}-\rho_{22}\right)-\frac{\sigma_{21}}{T_{2}}=0
+\tag*{\textcircled{1}}\label{1}\\ 
+2\mathrm{i}  \Omega\left(\sigma_{21}-\sigma_{21}^{*}\right)-\frac{\rho_{11}-\rho_{22}-\left(\rho_{11}-\rho_{22}\right)_{0}}{\tau}=0 
+\tag*{\textcircled{2}}\label{2}   
+\end{gather*}
+
+\begin{theorem}
+上述方程组的解为
+\begin{gather*}
+\text{Im}\left[\sigma_{21}\right]=\frac{\Omega T_{2}\left(\rho_{11}-\rho_{22}\right)_0}{1+\left(\omega-\omega_{0}\right)^{2} T_{2}^{2}+4 \Omega^{2} T_{2} \tau}\\ 
+\text{Re}\left[\sigma_{21}\right]=\frac{-\left(\omega-\omega_{0}\right) \Omega T_{2}^{2}\left(\rho_{11}-\rho_{22}\right)_{0}}{1+\left(\omega-\omega_{0}\right)^{2} T_{2}^{2}+4 \Omega^{2} T_{2} \tau}\\
+\rho_{11}-\rho_{22}=\left(\rho_{11}-\rho_{22}\right)_0 \frac{1+\left(\omega-\omega_{0}\right)^{2} T_{2}^2}{4 \Omega^{2} T_{2} \tau+1+\left(\omega-\omega_{0}\right)^{2} T_{2}^{2}}
+\end{gather*}    
+\end{theorem}
+\begin{proof}
+
+由\ref{1}解出$\sigma_{21}$
+
+\begin{equation}
+\sigma_{21}=\frac{\mathrm{i} \Omega\left(\rho_{11}-\rho_{22}\right)}{\frac{1}{T_{2}}-\mathrm{i}\left(\omega-\omega_{0}\right)}
+\tag*{\textcircled{3}}\label{3} 
+\end{equation}
+
+把\ref{3}代回\ref{2}解得
+\begin{equation}
+\rho_{11}-\rho_{22}=\left(\rho_{11}-\rho_{22}\right)_0 \frac{1+\left(\omega-\omega_{0}\right)^{2} T_{2}^2}{4 \Omega^{2} T_{2} \tau+1+\left(\omega-\omega_{0}\right)^{2} T_{2}^{2}} 
+\tag*{\textcircled{4}}\label{4}    
+\end{equation}
+把\ref{4}代回\ref{1}解得
+\begin{gather*}
+\text{Im}\left[\sigma_{21}\right]=\frac{\Omega T_{2}\left(\rho_{11}-\rho_{22}\right)_0}{1+\left(\omega-\omega_{0}\right)^{2} T_{2}^{2}+4 \Omega^{2} T_{2} \tau}\\ 
+\text{Re}\left[\sigma_{21}\right]=\frac{-\left(\omega-\omega_{0}\right) \Omega T_{2}^{2}\left(\rho_{11}-\rho_{22}\right)_{0}}{1+\left(\omega-\omega_{0}\right)^{2} T_{2}^{2}+4 \Omega^{2} T_{2} \tau}
+\end{gather*}
+\end{proof}
+
+
+
+8.6
+
+\[\chi(\omega)=\chi^{\prime}(\omega)-i \chi^{\prime \prime}(\omega)\\=\frac{\mu \Delta N_{0}}{\varepsilon_{0} \hbar}\frac{\omega-\left[\omega_{0}-\left(i / T_{2}\right)\right)}{\left\{\omega-\left[\omega_{0}-\left(i / T_{2}\right) \sqrt{\left(1+s^{2}\right)}\right]\right\}\left\{\omega-\left[\omega_{0}+\left(i / T_{2}\right) \sqrt{1+s^{2}}\right]\right\}} \]
+在\(s^{2}=\mu^{2} E_0^{2} T_{2} \tau / \hbar^{2} \propto E_{0}^{4}=0\)时,
+
+\[\chi(\omega)=-\frac{\mu \Delta N_{0}}{\varepsilon_{0} \hbar} \frac{1}{\omega-\left[\omega_{0}+\left(i / T_{2}\right)\right]} \]
+在\(\omega\)下半平面有单极点, 满足Kramers-Kronig定理的条件.
+
+% 9.1
+
+% 根据
+
+% \[\frac{h \nu V_{m} W_{i}}{K}=n_{m} \]
+% \[K=\frac{h \nu V_{m} W_{i}}{n_{m}} \]
+% 而\(n_{m}=\frac{I n V_{m}}{c h \nu_{m}}\), 其中\(I\)为光强, 满足8.3-9式,
+
+% \[I=\frac{1}{\lambda^{2} g\left(\nu_{0}\right)} 8 \pi h \nu n^{2} t_{自发}W_i \]
+% 带入得到
+
+% \[n_{m}=\frac{n V_{m} W_{i} 8 \pi n^{2} t_{自发} \nu^{2}}{c^{3} g\left(\nu_{0}\right)} \]
+% 所以得到
+
+% \[K=\frac{c^{3} h \nu V_{m} W_{i}}{n V_m W_i 8 \pi n^{2} t\nu^2\Delta \nu}
+% =\frac{h \nu c^{3}}{8 \pi n^{3} \nu^{2} \Delta \nu t} \]
+
+
+9.2
+
+由9.1-21式, 当有横向约束时, 内部损耗\(\alpha\)增大, 由
+
+\[\nu=\nu_{m}-\left(\nu-\nu_{0}\right)\frac{c\left[\alpha-1/l \ln\left(r_{1} r_{2}\right)\right]}{2 \pi n \Delta \nu} \]
+可知, 激光共振频率将会稍稍远离无源腔共振频率.
+
+利用9.1-18式,
+
+\[\nu_{m}=\frac{m c}{2 n l}+\frac{c}{2 \pi n l}\left(\tan ^{-1} \frac{z_{2}}{z_{0}}-\tan ^{-1} \frac{z_{1}}{z_{0}}\right) \]
+再利用\(\arctan a-\arctan b=\arctan \frac{a-b}{1+a b}\)可以化简. 对于共焦腔, 利用6.6-13和7.1-10可得\(z_0=l/2\), 所以有
+
+\[\nu_{m}=\frac{m c}{2 n l}+\frac{c}{2 \pi n l} \arctan \frac{l z_{0}}{z_{0}^{2}+z_{1} z_{2}} \]
+利用
+
+\[z_{1}=-\frac{l}{2}, z_{2}=\frac{l}{2} \]
+代入可得
+
+\[\arctan \frac{l z_{0}}{z_{0}^{2}+z_{1} z_{2}}=\arctan \frac{\frac{1}{2} l^{2}}{\frac{1}{4} l^{2}-\frac{1}{4} l^{2}}=\frac{\pi}{2} \]
+所以共焦腔有
+
+\[\nu_{m}=\frac{m c}{2 n l}+\frac{c}{4 n l} \]
+而当\(z_0\gg l\)时, \(\arctan \frac{l z_{0}}{z_{0}^{2}+z_1z_{2}}=0\), 所以,
+
+\[\nu_{m}=\frac{m c}{2 n l} \]
+9.3
+
+在\(\text{F-P}\)腔中,即考虑特例\(\omega_0\to\infty\), 则有\(\varphi(z_1),\varphi(z_2)\to0\)
+
+这时
+$$
+\left\{
+\begin{aligned}
+    &\nu_{m,\mathrm{dead}}=\frac{c}{2nl}\left[m-\frac{1}{2\pi}(\theta_1+\theta_2)\right]\\
+    &\nu_{m}\left[1+\frac{\chi'(\nu_m)}{2n^2}\right]=\nu_{m,\mathrm{dead}}    
+\end{aligned}
+\right.
+$$
+则
+\begin{align*}
+    &\frac{c}{2nl}\left[m-\square\right]=\nu_{m}\left[1+\frac{\chi'(\nu_m)}{2n^2}\right]\\
+    &\frac{c}{2nl}\left[m+1-\square\right]=\nu_{m+1}\left[1+\frac{\chi'(\nu_{m+1})}{2n^2}\right]
+\end{align*}
+作差得到
+$$
+\frac{c}{2nl}=\nu_{m+1}-\nu_m+\frac{1}{2n^2}\left[\nu_{m+1}\chi'(\nu_{m+1})-\nu_{m}\chi'(\nu_{m})\right]
+$$
+计算其中的项
+\begin{align*}
+    \nu_{m+1}\chi'(\nu_{m+1})-\nu_{m}\chi'(\nu_{m})
+    &=(\nu_{m+1}-\nu_{m})\chi'(\nu_{m+1})+\nu_{m}\left[\chi'(\nu_{m+1})-\chi'(\nu_{m})\right]\\
+    &=(\nu_{m+1}-\nu_{m})\chi'(\nu_{m+1})+\nu_{m}(\nu_{m+1}-\nu_{m})\frac{\dif \chi'(\nu)}{\dif \nu}|_{\nu=\nu_m}\\
+    &=(\nu_{m+1}-\nu_{m})\left[\chi'(\nu_{m+1})+\nu_{m}\frac{\dif \chi'(\nu)}{\dif \nu}|_{\nu=\nu_m}\right]
+\end{align*}
+所以
+$$
+\frac{c}{2nl}=(\nu_{m+1}-\nu_{m})\left[1+\frac{1}{2n^2}\chi'(\nu_{m+1})+\frac{1}{2n^2}\nu_{m}\frac{\dif \chi'(\nu)}{\dif \nu}|_{\nu=\nu_m}\right]
+$$
+移项即得答案 (跟答案比多了一项,答案错了吧)
+
+9.4
+
+式9.2-14中, \(\omega_l\)是无源腔的振荡频率, 而\(\omega\)是实际激光频率. 因此实际上\(\omega_l\)对应9.1-17中令\(\chi'=0\)的\(\omega\), 而\(\omega\)则直接就是9.1-17中的\(\omega\). 二者作差得到
+
+\[\omega_{l}-\omega\left[1+\frac{\chi^{\prime}(\nu)}{2 n^{2}}\right]=0 \]
+因此
+
+\[\omega_{l}^{2}-\omega^{2} \simeq \omega^{2} \frac{\chi^{\prime}(\nu)}{n^{2}}\tag{$*$} \]
+将9.1-14带入9.1-14a中, 得到
+
+\[e^{\left(- k \frac{\chi^{\prime \prime}(\nu)}{n^{2}}-\alpha\right) \cdot l}=\frac{1}{r_{1} r_{2}} \]
+即
+
+\[\frac{\omega n}{c} \cdot \frac{x^{\prime \prime}(\nu)}{n^{2}}=-\alpha+\frac{1}{l}\ln(r_1r_2) \]
+令
+
+\[\sigma=\left[\alpha-\frac{1}{l} \ln \left(r_{1} r_{2}\right)\right] \frac{c}{n} \cdot \varepsilon \]
+则有
+
+\[\frac{\omega\chi^{\prime \prime}(\nu)}{n^{2}}=-\frac{\sigma}{\varepsilon} \]
+以\((-i)\)乘以上式并加上\((*)\)式可得
+
+\[\omega_{c}^{2}-\omega^{2}+i \frac{\sigma \omega}{\varepsilon}=\omega^{2} \frac{1}{n^{2}}\left(\chi^{\prime}(\nu)-i \chi^{\prime \prime}(\nu)\right) \]
+9.6
+
+稳态时有\(\frac{d}{d t} N_{i}=0\),
+
+\[\left\{\begin{array}{l}{R_{2}-\frac{N_{2}}{t_{1}}-\left(N_{2}-\frac{g_{2}}{g_{1}} N_{1}\right) W_{i}(\nu)=0} \\ {R_{1}-\frac{N_{1}}{t_{1}}+\frac{N_{2}}{t_{21}}+\left(N_{2}-\frac{g_{2}}{g_{1}} N_{1}\right) W_{i}(\nu)=0}\end{array}\right. \]
+得到
+
+\[\left\{\begin{array}{l}{N_{1}=\frac{\left(\frac{1}{t_{2}}+W_{i}\right) N_{2}-R_{2}}{\frac{g_{2}}{g_{1}} W_{i}}} \\ {N_{2}=\frac{t_{2} R_{2}+\left(R_{1}+R_{2}\right) t_{1}t_2\frac{g_{2}}{g_{1}} W_{i}}{1+W_{i}\left[t_{2}+(1-\delta) \frac{g_{2}}{g_{1}}\right]}}\end{array}\right. \]
+所以
+
+\[\Delta N \equiv N_{2}-\frac{g_{2}}{g_{1}} N_{1}=\frac{R_{2} t_{2}-\left(R_{1}+\delta R_{2}\right) t_{1} \frac{g_{2}}{g_{1}}}{1+\left[t_{2}+(1-\delta) t_{1} \frac{g_{2}}{g_{1}}\right] W_{i}(\nu)} \]
+
+
+11.1
+(a): 
+A显示强度调制的基本分量，可看到基频信号。
+B显示强度调制的功率谱，可看到一个峰值很高的拍频信号。
+C显示光场功率谱，可看到不同谱线对应的强度，中间高，两边低。
+D显示光强，可看到多个等强度等间隔的高峰值脉冲。
+
+(b):
+锁模可使拍频信号功率增加N倍。
+
+
+
+14.2
+对于横向电光调制器，双折射会产生附加的相位差$\varphi=(n_o-n_e)k_0l$, 因为温度变化时，$n_o,n_e$会变化，所以附加相位也会随温度发生漂移，影响调制器的正常工作
+
+14.3
+利用公式
+$$
+\sin [a\sin t]=2\sum_{n=1}^{\infty}\mathrm{J}_{2n-1}(a)\sin[(2n-1)t]
+$$
+
+则
+$$
+\frac{I_o}{I_i}=\frac{1}{2}\left[1+\sin\left(\Gamma_m\sin \omega_m t\right)\right]
+=\frac{1}{2}+\sum_{n=1}^{\infty}\mathrm{J}_{2n-1}(\Gamma_m)\sin[(2n-1)\omega_mt]
+$$
+
+$$
+I_3=\mathrm{J}_3(\Gamma_m)\sin(3\omega_mt)  \to \frac{1}{2}\mathrm{J}_3(\Gamma_m)
+$$
+$$
+I_1=\mathrm{J}_1(\Gamma_m)\sin(\omega_mt) \to \frac{1}{2}\mathrm{J}_1(\Gamma_m)
+$$
+则
+$$
+\frac{I_3}{I_1}=\frac{\mathrm{J}_3(\Gamma_m)}{\mathrm{J}_1(\Gamma_m)}
+$$
+要使
+$$
+f(\Gamma_m)=\frac{\mathrm{J}_3(\Gamma_m)}{\mathrm{J}_1(\Gamma_m)}<0.01
+$$
+则要求
+$$
+\Gamma_m<0.5
+$$
+$$
+\left(f(0.48)=0.0097404,f(0.5)=0.0105822\right)
+$$
+
+\end{document}

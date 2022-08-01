@@ -1,0 +1,106 @@
+\documentclass{ctexart}
+
+% 基本信息
+\title{\vspace{-3cm}mytitle}
+\author{LiLi}
+\date{\today}
+
+% 页面
+\usepackage{geometry} % 设置页边距
+\geometry{a4paper,centering,scale=0.8}
+
+% 文字
+\usepackage{lmodern} % 消除字体问题，；有时管用
+
+% 颜色
+% \usepackage{color} % 设置字体颜色
+\usepackage[dvipsnames]{xcolor}
+
+% 公式
+% \usepackage{boondox-calo} % 产生小写花体字母 但是大写的花体cal 被改的不好看了
+\usepackage{amsmath,mathrsfs,amsfonts,amssymb} % 分别是  ，花体字  ，  。
+\usepackage{commath} % 定义微分算子 d 
+\usepackage{bm} % \bm 数学符号的斜体
+
+
+\usepackage{amsthm} % 定理和证明
+\newtheorem{theorem}{Theorem}[section]
+% \newtheorem{lemma}[theorem]{Lemma}
+% \newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{remark}{Remark}[section]
+% \newtheorem{example}{Example}[section] % 还是没有我想要的框框效果
+% \newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+
+\usepackage[most]{tcolorbox} % 加most 可以解决编译时遇到的 I do not know the key '/tcb/enhanced' 之类的问题
+
+
+% 图片
+\usepackage{graphicx} % 和graphics 命令都一样 可选变量不一样
+\usepackage{float}
+% \usepackage[format=hang]{caption} % 看个人需要 textfont=it,font=small
+
+\usepackage{tikz}
+\usetikzlibrary{3d,perspective}
+\usetikzlibrary{angles,quotes}
+
+
+% 自定义的环境
+\renewcommand\emph[1]{\colorbox{YellowGreen}{#1}}
+
+
+
+% 自定义的环境
+\newenvironment{objectives}
+{\noindent\rule{\textwidth}{2pt} % begin part
+\textbf{Learning objectives}
+\vspace{-5pt} \\ \rule{\textwidth}{1pt}}
+{ % end part % 中间的空行是为了适应环境中的内容结尾可能有分段（比如itemize）也可能没分段（比如单纯的文字）
+    
+\noindent\rule{\textwidth}{1pt}} % 不要动中间的空行，可能弄坏了
+
+
+\newenvironment{example}[1][] % 这个设置取自文档p166
+    {\begin{tcolorbox}
+    [enhanced,
+    title=Example: #1, % #1 前面的空格加多少个都视为一个，不错
+    colframe=red!50!black,
+    colback=red!3!white,%  % 整体内容区域的颜色 加了微量的红色更加跟其他内容区分开来
+    arc=1mm,
+    colbacktitle=red!10!white,
+    fonttitle=\bfseries,
+    coltitle=red!50!black,
+    attach boxed title to top left={xshift=3.2mm,yshift=-0.50mm},
+    boxed title style={skin=enhancedfirst jigsaw,
+        size=small,arc=1mm,bottom=-1mm,
+        interior style={fill=none,% example 这个字样的背景色
+            top color=red!30!white, % 从上到下还是个渐变色
+            bottom color=red!20!white}},
+    breakable]} % breakable 可以使框框分页，但是变成了两个框，再加上前面的enhanced 就可以既分页，又还是一个框
+{\end{tcolorbox}}
+
+
+
+
+
+% \usepackage{lipsum} % 生成一段文字
+\usepackage{pdfpages} % 插入一个pdf的某些页面 usage:\includepdf[pages={1-3}]{1.pdf}
+
+
+
+
+% self-define
+\newcommand{\etal}{\textit{et al}., }
+\newcommand{\ie}{\textit{i}.\textit{e}., }
+\newcommand{\eg}{\textit{e}.\textit{g}.\ }
+\newcommand{\bbinom}[2]{\genfrac{[}{]}{0pt}{}{#1}{#2}} % '['还可以是多个字符的组合 不小心试出来的
+\newcommand{\啊}{啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊}
+
+% 更细的修补
+\allowdisplaybreaks % break the equations in 'align' environment through pages
+\everymath{\vadjust{\nobreak\null}} % Allow line breaks but not page breaks in inline formulas 这个不知道工作原理是什么
+
+% \usepackage{breqn} 专门解决break equation 的宏包
+
+
